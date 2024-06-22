@@ -64,7 +64,7 @@ Once we have removed all duplicates, it's now time to check for *NULL* values. F
 
 ### 1. Which category and store location offered the largest source of revenue?
 
-<img src="Assets/Revenue-per-category.png" width="300" >
+<img src="Assets/Revenue-per-category.png" width="550" >
 
 *Treemap chart: revenue per category*
 
