@@ -64,7 +64,8 @@ Once we have removed all duplicates, it's now time to check for *NULL* values. F
 
 ### 1. Which category and store location offered the largest source of revenue?
 
-![Treemap chart: revenue per category](Assets/Revenue-per-category.png)
+<img src="Assets/Revenue-per-category.png" width="300" >
+
 *Treemap chart: revenue per category*
 
 *Coffee* appeared to be the largest source of revenue for the shop, with $269,591 in sales, followed by *Tea* and *Bakery*. *Packed Chocolate*, on the other hand, was the smallest category, with only $4,408 in revenue.
