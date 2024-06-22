@@ -37,7 +37,18 @@ First, let's identify duplicates using ROW_NUMBER() function in combination with
 WITH duplicate AS
 	(
 	SELECT *,
-		ROW_NUMBER() OVER(PARTITION BY transaction_date, transaction_time, transaction_qty, store_id, store_location, product_id, unit_price, product_category, product_type, product_detail) row_num
+		ROW_NUMBER() OVER(
+            PARTITION BY 
+            transaction_date, 
+            transaction_time, 
+            transaction_qty, 
+            store_id, 
+            store_location, 
+            product_id, 
+            unit_price, 
+            product_category, 
+            product_type, 
+            product_detail) AS row_num
 	FROM transactions
 	)
 SELECT * FROM duplicate
