@@ -8,9 +8,9 @@ The dataset under scrutiny comprises over 148,000 records (after data cleaning p
 
 With the application of **SQL** and **Tableau**, insights from the dataset will help identify the following three questions:
 
-- In which category and store location offer the largest source of revenue?
+- Which category and store location offered the largest source of revenue?
 - How have Maven Roasters sales trended over time (revenue per days of the week, time of the day, etc.)?
-- How often do customers purchase certain products together?
+- How often did customers purchase certain products together?
 
 The SQL queries addressing the problem: [click here](sql_code)
 
@@ -62,16 +62,30 @@ Once we have removed all duplicates, it's now time to check for *NULL* values. F
 
 # Findings
 
-### 1. In which category and store location offer the largest source of revenue?
+### 1. Which category and store location offered the largest source of revenue?
 
-![](Assets\Revenue-per-category.png)
+![Treemap chart: revenue per category](Assets\Revenue-per-category.png)
 *Treemap chart: revenue per category*
 
-*Coffee* appears to be the largest source of revenue for the shop, with $269,591 in sales, followed by *Tea* and *Bakery*. *Packed Chocolate*, on the other hand, is the smallest category, with only $4,408 in revenue.
+*Coffee* appeared to be the largest source of revenue for the shop, with $269,591 in sales, followed by *Tea* and *Bakery*. *Packed Chocolate*, on the other hand, was the smallest category, with only $4,408 in revenue.
 
-![](Assets\Revenue-per-store.png)
+![Pie chart: revenue per store](Assets\Revenue-per-store.png)
 *Pie chart: revenue per store*
 
-Overall, the performance of the 3 stores is fairly consistent, with each store contributes around 33% of the total revenue for the cafe. Hell's Kitchen (store 8) stands out compared to others with $236,029 in sales (33.85% of total).
+Overall, the performance of the 3 stores was fairly consistent, with each store contributed around 33% of the total revenue for the cafe. Hell's Kitchen (store 8) stood out compared to others with $236,029 in sales (33.85% of total).
 
-### How have Maven Roasters sales trended over time
+### 2. How have Maven Roasters sales trended over time?
+
+To answer the question, let's first look at the store's revenue at each month:
+
+![Bar chart: revenue per month](Assets\Revenue-per-month.png)
+
+The revenue tended to increase over time, except for Feb, which might partly due to a lack of 3 days compared to Jan (as Feb 2023 had only 28 days, while Jan had 31 days).
+
+Next, I dived in to identify which week days had the highest in sales using a line chart:
+
+![Line chart: revenue per month](Assets\Revenue-per-weekday.png)
+
+Looking at the chart, it is worth noticing that sales in Mondays and Fridays were the highest, while that figures of Saturdays and Sundays totally adversed. This might indicate that high sales days are usually the start and end of work days (Mons and Fri), while low sales days are the weekends.  
+
+
