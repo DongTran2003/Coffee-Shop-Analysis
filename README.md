@@ -64,12 +64,12 @@ Once we have removed all duplicates, it's now time to check for *NULL* values. F
 
 ### 1. Which category and store location offered the largest source of revenue?
 
-![Treemap chart: revenue per category](Assets\Revenue-per-category.png)
+![Treemap chart: revenue per category](Assets/Revenue-per-category.png)
 *Treemap chart: revenue per category*
 
 *Coffee* appeared to be the largest source of revenue for the shop, with $269,591 in sales, followed by *Tea* and *Bakery*. *Packed Chocolate*, on the other hand, was the smallest category, with only $4,408 in revenue.
 
-![Pie chart: revenue per store](Assets\Revenue-per-store.png)
+![Pie chart: revenue per store](Assets/Revenue-per-store.png)
 *Pie chart: revenue per store*
 
 Overall, the performance of the 3 stores was fairly consistent, with each store contributed around 33% of the total revenue for the cafe. Hell's Kitchen (store 8) stood out compared to others with $236,029 in sales (33.85% of total).
@@ -78,13 +78,13 @@ Overall, the performance of the 3 stores was fairly consistent, with each store 
 
 To answer the question, let's first look at the store's revenue at each month:
 
-![Bar chart: revenue per month](Assets\Revenue-per-month.png)
+![Bar chart: revenue per month](Assets/Revenue-per-month.png)
 
 The revenue tended to increase over time, except for Feb, which might partly due to a lack of 3 days compared to Jan (as Feb 2023 had only 28 days, while Jan had 31 days).
 
 Next, I dived in to identify which week days had the highest in sales using a line chart:
 
-![Line chart: revenue per month](Assets\Revenue-per-weekday.png)
+![Line chart: revenue per month](Assets/Revenue-per-weekday.png)
 
 Looking at the chart, it is worth noticing that sales in Mondays and Fridays were the highest, while that figures of Saturdays and Sundays totally adversed. This might indicate that high sales days are usually the start and end of work days (Mons and Fri), while low sales days are the weekends.  
 
