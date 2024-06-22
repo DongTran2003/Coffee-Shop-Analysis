@@ -1,3 +1,4 @@
+-- Check any Null value
 SELECT *
 FROM transactions
 WHERE transaction_date IS NULL
