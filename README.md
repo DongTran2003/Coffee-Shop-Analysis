@@ -70,8 +70,7 @@ Once we have removed all duplicates, it's now time to check for *NULL* values. F
 
 *Coffee* appeared to be the largest source of revenue for the shop, with $269,591 in sales, followed by *Tea* and *Bakery*. *Packed Chocolate*, on the other hand, was the smallest category, with only $4,408 in revenue.
 
-![Pie chart: revenue per store](Assets/Revenue-per-store.png)
-
+<img src="Assets/Revenue-per-store.png" width="550" >
 
 Overall, the performance of the 3 stores was fairly consistent, with each store contributed around 33% of the total revenue for the cafe. Hell's Kitchen (store 8) stood out compared to others with $236,029 in sales (33.85% of total).
 
