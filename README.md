@@ -91,7 +91,7 @@ Looking at the chart, it is worth noticing that sales in Mondays and Fridays wer
 
 It's also important for the shop's manager to know which time of the day usually had the highest in sales, also known as peak hours:
 
-<img src="Assets/Revenue-per-time.png" width="550" >
+<img src="Assets/Revenue-per-time.png" width="350" >
 
 As the shop got busy right at its opening time, which is 6 a.m., it soon reached its peak hour at 10 in the morning, with the total revenue recorded at this time was $88,302. It then formed a ... after a significant downtrend in sales and finally plummeted to the lowest revenue point of the day - 8 p.m. or at closing time.
 
@@ -99,4 +99,16 @@ To have a better view of the analysis, let's look at which product categories we
 
 <img src="Assets/Revenue-per-time-category.png" width="550" >
 
-From the visualization, **Coffee** was still the leader, with $33,258 in revenue at peak hour (10 a.m.), compared to that of **Tea**, with  $22,950 in sales at the same time of the day. It's interesting to see that the majority of all categories
+From the visualization, **Coffee** was still the leader, with $33,258 in revenue at peak hour (10 a.m.), compared to that of **Tea** - the second highest in revenue, with  $22,950 in sales at the same time of the day. It's interesting to see that the majority of all categories had the same trend in sales when they all reached the highest points in revenue at 10 a.m., except for **Drinking Chocolate** and **Branded** categories.
+
+### 3. How often did customers purchase certain products together?
+
+Now, it's getting more interesting to see which products are most frequently bought together. As mentioned in the ***Tools and Techniques***, a data mining method called 'Market Basket Analysis' will be applied to help us identify the number of times that each pair of different products were purchased together. 
+
+This analysis offers a vast amount of benefits for retailers, or our cafe shop owner in this case study. The insights from this analysis might help understanding customer behaviour, efficiency inventory management, sales and promotions, menu development, and strategic decisions (Kaur & Kang, 2016).
+
+To do this, we first need to identify all the orders from customers for the given period of time. Once all orders are identified with a unique ```order_id```, we can then see what products are purchased in 1 order.
+
+Although the given dataset has a ```transaction_id``` column, it does not indicate the id of the order, but instead the id of each item bought:
+
+<img src="Assets/multiple-transactions-example.png" width="550" >
