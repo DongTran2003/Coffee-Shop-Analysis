@@ -68,24 +68,35 @@ Once we have removed all duplicates, it's now time to check for *NULL* values. F
 
 *Treemap chart: revenue per category*
 
-*Coffee* appeared to be the largest source of revenue for the shop, with $269,591 in sales, followed by *Tea* and *Bakery*. *Packed Chocolate*, on the other hand, was the smallest category, with only $4,408 in revenue.
+Looking at the chart above, **Coffee** appeared to be the largest* source of revenue for the shop, with $269,591 in sales, followed by **Tea** and **Bakery**. **Packed Chocolate**, on the other hand, was the smallest category, with only $4,408 in revenue.
+
+Overall, the performance of the 3 stores was fairly consistent, with each store contributed around 33% of the total revenue for the cafe. Hell's Kitchen (store 8) stood out compared to others with $236,029 in sales (33.85% of total).
 
 <img src="Assets/Revenue-per-store.png" width="550" >
 
-Overall, the performance of the 3 stores was fairly consistent, with each store contributed around 33% of the total revenue for the cafe. Hell's Kitchen (store 8) stood out compared to others with $236,029 in sales (33.85% of total).
 
 ### 2. How have Maven Roasters sales trended over time?
 
 To answer the question, let's first look at the store's revenue at each month:
 
-![Bar chart: revenue per month](Assets/Revenue-per-month.png)
+<img src="Assets/Revenue-per-month.png" width="550" >
 
 The revenue tended to increase over time, except for Feb, which might partly due to a lack of 3 days compared to Jan (as Feb 2023 had only 28 days, while Jan had 31 days).
 
-Next, I dived in to identify which week days had the highest in sales using a line chart:
+Next, I dived in to identify which weekdays had the highest in sales using a line chart:
 
-![Line chart: revenue per month](Assets/Revenue-per-weekday.png)
+<img src="Assets/Revenue-per-weekday.png" width="550" >
 
-Looking at the chart, it is worth noticing that sales in Mondays and Fridays were the highest, while that figures of Saturdays and Sundays totally adversed. This might indicate that high sales days are usually the start and end of work days (Mons and Fri), while low sales days are the weekends.  
+Looking at the chart, it is worth noticing that sales in Mondays and Fridays were the highest, while that figures of Saturdays and Sundays totally adversed. This might indicate that high sales days are usually the start and end of work days (Mon and Fri), while low sales days are the weekends.  
 
+It's also important for the shop's manager to know which time of the day usually had the highest in sales, also known as peak hours:
 
+<img src="Assets/Revenue-per-time.png" width="550" >
+
+As the shop got busy right at its opening time, which is 6 a.m., it soon reached its peak hour at 10 in the morning, with the total revenue recorded at this time was $88,302. It then formed a ... after a significant downtrend in sales and finally plummeted to the lowest revenue point of the day - 8 p.m. or at closing time.
+
+To have a better view of the analysis, let's look at which product categories were demanded the most during different time points of the day:
+
+<img src="Assets/Revenue-per-time-category.png" width="550" >
+
+From the visualization, **Coffee** was still the leader, with $33,258 in revenue at peak hour (10 a.m.), compared to that of **Tea**, with  $22,950 in sales at the same time of the day. It's interesting to see that the majority of all categories
