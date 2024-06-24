@@ -107,15 +107,27 @@ Now, it's getting more interesting to see which products are most frequently bou
 
 This analysis offers a vast amount of benefits for retailers, or our cafe shop owner in this case study. The insights from this analysis might help understanding customer behaviour, efficiency inventory management, sales and promotions, menu development, and strategic decisions (Kaur & Kang, 2016).
 
-To do this, we first need to identify all the orders from customers for the given period of time. Once all orders are identified with a unique ```order_id```, we can then see what products are purchased in 1 order.
+#### Process of Market Basket Analysis
 
-Although the given dataset has a ```transaction_id``` column, it does not indicate the id of each order, but instead the id of each item bought. For instance, 3 different transaction_id(s) were queried in the image below, but they refered to the same transaction date and time. This means the 3 records are actually in the same order with different items purchased. 
+1. Identify Orders:
+
+First, we need to identify all orders made within the given period. Each order will be assigned a unique order_id.
+
+2. Understanding the Dataset:
+
+The dataset contains a ```transaction_id``` column, which represents each item bought, not each order. Multiple transaction_id's can refer to the same ```transaction_date``` and ```transaction_time```, indicating they belong to the same order.
+
+For instance, the image below shows three different transaction_id's that occur at the same transaction_date and transaction_time, indicating they are part of the same order.
 
 <img src="Assets/multiple-transactions-example.png" width="550" >
 
-Therefore, I created a column in the given dataset called ```order_id``` and tried to identify which records belong to which orders and assigned these records with specific order_id. For all the records to be considered in the same order, they must have the same ```transaction_date``` and ```transaction_time```. This can be done with the ```DENSE_RANK() OVER()``` function, order by transaction_date and transaction_time. 
+3. Creating the ```order_id``` Column
 
-The new table called 'basket' will be used to store of the updated data:
+To identify which records belong to which orders, I created an ```order_id``` column. Records with the same ```transaction_date``` and ```transaction_time``` are assigned the same order_id.
+
+This can be achieved using the **DENSE_RANK() OVER()** function, ordered by transaction_date and transaction_time.
+
+The new table called 'basket' will be used to store the updated data:
 
 ```sql
 -- Step 1: Create the new table
@@ -139,4 +151,6 @@ SELECT
 	product_id
 FROM transactions;
 ```
+
+By applying this process, we can accurately group items into their respective orders, allowing for a thorough market basket analysis.
 
