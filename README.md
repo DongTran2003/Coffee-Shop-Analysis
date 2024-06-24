@@ -109,6 +109,34 @@ This analysis offers a vast amount of benefits for retailers, or our cafe shop o
 
 To do this, we first need to identify all the orders from customers for the given period of time. Once all orders are identified with a unique ```order_id```, we can then see what products are purchased in 1 order.
 
-Although the given dataset has a ```transaction_id``` column, it does not indicate the id of the order, but instead the id of each item bought:
+Although the given dataset has a ```transaction_id``` column, it does not indicate the id of each order, but instead the id of each item bought. For instance, 3 different transaction_id(s) were queried in the image below, but they refered to the same transaction date and time. This means the 3 records are actually in the same order with different items purchased. 
 
 <img src="Assets/multiple-transactions-example.png" width="550" >
+
+Therefore, I created a column in the given dataset called ```order_id``` and tried to identify which records belong to which orders and assigned these records with specific order_id. For all the records to be considered in the same order, they must have the same ```transaction_date``` and ```transaction_time```. This can be done with the ```DENSE_RANK() OVER()``` function, order by transaction_date and transaction_time. 
+
+The new table called 'basket' will be used to store of the updated data:
+
+```sql
+-- Step 1: Create the new table
+CREATE TABLE basket (
+	transaction_id INT,
+    order_id INT,
+    transaction_date DATE,
+    transaction_time TIME,
+	transaction_qty INT,
+	product_id INT
+);
+
+-- Step 2: Insert data into the new table with dense rank
+INSERT INTO basket (transaction_id, order_id, transaction_date, transaction_time, transaction_qty, product_id)
+SELECT 
+    transaction_id,
+	DENSE_RANK() OVER (ORDER BY transaction_date, transaction_time) AS order_id,
+    transaction_date,
+    transaction_time,
+	transaction_qty,
+	product_id
+FROM transactions;
+```
+
