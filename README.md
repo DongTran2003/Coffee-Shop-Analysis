@@ -160,7 +160,7 @@ By applying this process, we can accurately group items into their respective or
 It's time to take a closer look at the basket analysis in visualizations using Tableau. As there are 29 different products given in the dataset, it would be hard to see everything in a single chart. Therefore, I will first analyze which product categories are most frequently bought together:
 
 
-<img src="Assets/product-category-basket-analysis.png" width="450" >
+<img src="Assets/product-category-basket-analysis.png" width="650" >
 
 Having insights from the chart, it's clear that **Coffee** and **Bakery** are the two most frequently bought toghether categories, with 10,645 times recorded. The second best pair of categories is **Tea** and **Bakery**, when they were purchased together 8033 times. There was also a trend in adding flavors (such as syrups) to coffee, with 6,737 times recorded.
 
