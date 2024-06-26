@@ -8,7 +8,7 @@ GROUP BY t1.product_id, t2.product_id
 ORDER BY times_bought_together DESC 
 LIMIT 10
 
--- Conver product_id to its corresponding product_detail
+-- Convert product_id to its corresponding product_detail
 WITH pro_type AS 
 	(
 	SELECT DISTINCT product_id, product_detail FROM transactions ORDER BY product_id DESC

@@ -1,31 +1,31 @@
 # Introduction
 
-This **SQL** and **Tableau** project analyzes and gives insights about sales trends and patterns over time for a fictitious coffee shop called Maven Roasters, which is operated out of three NYC locations. The project is believed to help the owner in decision-making with its in-depth analysis and recommendations.
+This **SQL** and **Tableau** project analyzes and gives insights about sales trends and patterns over time for a fictitious coffee shop called Maven Roasters, which operates out of three NYC locations. The project aims to assist the owner in decision-making through in-depth analysis and recommendations.
 
 # About the data
 
-The dataset under scrutiny comprises over 148,000 records (after data cleaning process) spanning from the first 6 months of 2023. 
+The dataset under scrutiny comprises over 148,000 records (after data cleaning) spanning from the first six months of 2023. 
 
-With the application of **SQL** and **Tableau**, insights from the dataset will help identify the following three questions:
+Using **SQL** and **Tableau**, insights from the dataset address the following three questions:
 
-- Which category and store location offered the largest source of revenue?
-- How have Maven Roasters sales trended over time (revenue per days of the week, time of the day, etc.)?
+- Which category and store location generated the most revenue?
+- How have Maven Roasters sales trended over time (e.g., revenue per days of the week, time of the day, etc.)?
 - How often did customers purchase certain products together?
 
-The SQL queries addressing the problem: [click here](sql_code)
+The SQL queries addressing these questions can be found here: [click here](sql_code)
 
-The dataset hails from Kaggle:  [Coffee Shop Sales](https://www.kaggle.com/datasets/ahmedabbas757/coffee-sales/data)
+The dataset is sourced from **Kaggle**:  [Coffee Shop Sales](https://www.kaggle.com/datasets/ahmedabbas757/coffee-sales/data)
 
 Link to Tableau public for visualizations: 
 
 # Tools and techniques
 
-In order to fully explore the sales trend for the coffee shop, I utilised the following important tools and techniques:
+To fully explore the sales trends for the coffee shop, I utilised the following tools and techniques:
 
-- **SQL**: for querying, cleaning, transforming, and analyzing of sales data.
-- **Tableau**: for visualizations of findings and insights.
+- **SQL**: for querying, cleaning, transforming, and analyzing sales data.
+- **Tableau**: for visualizing findings and insights.
 - **Market Basket Analysis**: a data mining technique that analyzes patterns of co-occurrence, helping the retailers know about the products frequently bought together (Kaur & Kang, 2016). The technique will be applied both in Tableau and SQL.
-- **PostgreSQL**: database management system.
+- **PostgreSQL**: the database management system used.
 
 # Data exploration
 
@@ -56,21 +56,21 @@ WHERE row_num > 1;
 ```
 The ```WHERE``` clause identifies records that are repeated more than twice, which are duplicates in this context. 
 
-Once we have a table of duplicates, we just need to delete all of them in our dataset (refer to: *[duplicate_handling.sql](sql_code\Duplicate_handling.sql)*).
+Once we have a table listing all duplicates, we can delete them from our dataset (refer to: *[duplicate_handling.sql](sql_code\Duplicate_handling.sql)*).
 
-Once we have removed all duplicates, it's now time to check for *NULL* values. Following the query in *[Null_handling.sql](sql_code\Null_handling.sql)*, the result does not contain any null or missing values.
+Next, we check for *NULL* values. Following the query in *[Null_handling.sql](sql_code\Null_handling.sql)*, the result shows no null or missing values.
 
 # Findings
 
-### 1. Which category and store location offered the largest source of revenue?
+### 1. Which category and store location generated the most revenue?
 
 <img src="Assets/Revenue-per-category.png" >
 
 *Treemap chart: revenue per category*
 
-Looking at the chart above, **Coffee** appeared to be the largest* source of revenue for the shop, with $269,591 in sales, followed by **Tea** and **Bakery**. **Packed Chocolate**, on the other hand, was the smallest category, with only $4,408 in revenue.
+Looking at the chart above, **Coffee** appeared to be the largest source of revenue for the shop, with $269,591 in sales, followed by **Tea** and **Bakery**. **Packed Chocolate** was the smallest category, with only $4,408 in revenue.
 
-Overall, the performance of the 3 stores was fairly consistent, with each store contributed around 33% of the total revenue for the cafe. Hell's Kitchen (store 8) stood out compared to others with $236,029 in sales (33.85% of total).
+Overall, the performance of the three stores was fairly consistent, with each store contributing around 33% of the total revenue. Hell's Kitchen (store 8) stood out with $236,029 in sales (33.85% of total).
 
 <img src="Assets/Revenue-per-store.png" width="550" >
 
@@ -81,31 +81,31 @@ To answer the question, let's first look at the store's revenue at each month:
 
 <img src="Assets/Revenue-per-month.png" width="550" >
 
-The revenue tended to increase over time, except for Feb, which might partly due to a lack of 3 days compared to Jan (as Feb 2023 had only 28 days, while Jan had 31 days).
+The revenue tended to increase over time, except for Feb, which may partly be due to having fewer days compared to January (as Feb 2023 had only 28 days, while January had 31).
 
-Next, I dived in to identify which weekdays had the highest in sales using a line chart:
+Next, I analyzed sales by weekdays using a line chart:
 
 <img src="Assets/Revenue-per-weekday.png" width="550" >
 
-Looking at the chart, it is worth noticing that sales in Mondays and Fridays were the highest, while that figures of Saturdays and Sundays totally adversed. This might indicate that high sales days are usually the start and end of work days (Mon and Fri), while low sales days are the weekends.  
+Looking at the chart, it is worth noticing that sales in Mondays and Fridays were the highest, while that figures of Saturdays and Sundays were the lowest. This might indicate that high sales days are usually at the start and end of work days (Monday and Friday), while low sales days are on the weekends.  
 
 It's also important for the shop's manager to know which time of the day usually had the highest in sales, also known as peak hours:
 
 <img src="Assets/Revenue-per-time.png" width="350" >
 
-As the shop got busy right at its opening time, which is 6 a.m., it soon reached its peak hour at 10 in the morning, with the total revenue recorded at this time was $88,302. It then formed a ... after a significant downtrend in sales and finally plummeted to the lowest revenue point of the day - 8 p.m. or at closing time.
+The shop got busy right at opening time (6 a.m.), reaching its peak hour at 10 in the morning, with total revenue recorded at $88,302. It then formed a plateau after a significant downtrend in sales and finally plummeted to the lowest revenue point of the day at 8 p.m., or closing time.
 
-To have a better view of the analysis, let's look at which product categories were demanded the most during different time points of the day:
+To get a better view of the analysis, let's look at which product categories were demanded the most during different times of the day:
 
 <img src="Assets/Revenue-per-time-category.png" width="550" >
 
-From the visualization, **Coffee** was still the leader, with $33,258 in revenue at peak hour (10 a.m.), compared to that of **Tea** - the second highest in revenue, with  $22,950 in sales at the same time of the day. It's interesting to see that the majority of all categories had the same trend in sales when they all reached the highest points in revenue at 10 a.m., except for **Drinking Chocolate** and **Branded** categories.
+From the visualization, **Coffee** led with $33,258 in revenue at peak hour (10 a.m.), compared to **Tea**, the second highest in revenue, with $22,950 in sales at the same time. It's interesting to see that the majority of all categories followed a similar trend in sales, reaching the highest revenue at 10 a.m., except for **Drinking Chocolate** and **Branded** categories.
 
 ### 3. How often did customers purchase certain products together?
 
 Now, it's getting more interesting to see which products are most frequently bought together. As mentioned in the ***Tools and Techniques***, a data mining method called 'Market Basket Analysis' will be applied to help us identify the number of times that each pair of different products were purchased together. 
 
-This analysis offers a vast amount of benefits for retailers, or our cafe shop owner in this case study. The insights from this analysis might help understanding customer behaviour, efficiency inventory management, sales and promotions, menu development, and strategic decisions (Kaur & Kang, 2016).
+This analysis offers a vast amount of benefits for retailers, or our cafe shop owner in this case study. Insights from this analysis help understand customer behaviour, improve inventory management, optimize sales and promotions, develop menu, and make strategic decisions (Kaur & Kang, 2016).
 
 ### **Process of Market Basket Analysis**
 
@@ -125,7 +125,7 @@ For instance, the image below shows three different transaction_id's that occur 
 
 To identify which records belong to which orders, I created an ```order_id``` column. Records with the same ```transaction_date``` and ```transaction_time``` are assigned the same order_id.
 
-This can be achieved using the **DENSE_RANK() OVER()** function, ordered by transaction_date and transaction_time.
+This can be achieved using the **DENSE_RANK() OVER()** function, ordered by `transaction_date` `and transaction_time`.
 
 The new table called 'basket' will be used to store the updated data:
 
@@ -157,14 +157,14 @@ By applying this process, we can accurately group items into their respective or
 
 ### **The Analysis**
 
-It's time to take a closer look at the basket analysis in visualizations using Tableau. As there are 29 different products given in the dataset, it would be hard to see everything in a single chart. Therefore, I will first analyze which product categories are most frequently bought together:
+It's time to take a closer look at the basket analysis in visualizations using Tableau. As there are 29 different products given in the dataset, it's challenging to see everything in a single chart. Therefore, I first analyzed which product categories are most frequently bought together:
 
 
 <img src="Assets/product-category-basket-analysis.png" width="650" >
 
-Having insights from the chart, it's clear that **Coffee** and **Bakery** are the two most frequently bought toghether categories, with 10,645 times recorded. The second best pair of categories is **Tea** and **Bakery**, when they were purchased together 8033 times. There was also a trend in adding flavors (such as syrups) to coffee, with 6,737 times recorded.
+Having insights from the chart, it's clear that **Coffee** and **Bakery** are the two most frequently bought toghether categories, with 10,645 times occurences. The second most common pair of categories is **Tea** and **Bakery**, purchased together 8033 times. There was also a trend of adding flavors (such as syrups) to coffee, with 6,737 times recorded.
 
-This is just the tip of the iceberg, however, when this analysis aims to bring more insightful information to the business owner. This is when **SQL** joins in to help us identify the exact products are most purchased in the same order. This can be done by joining the table with itself (a self join) on the same ```order_id```:
+This is just the tip of the iceberg, however, since this analysis aims to bring more insightful information to the business owner. This is when **SQL** joins in to help us identify the exact products most frequently purchased together. This can be done by joining the table with itself (a self join) on the ```order_id```:
 
 ```sql
 SELECT t1.product_id, t2.product_id, COUNT(*) AS times_bought_together
@@ -189,7 +189,7 @@ LIMIT 10
 | 38         | 63             | 347                   |
 | 37         | 63             | 345                   |
 
-The chart seems power in showing all the details needed. But I don't want the reader to manually check what product detail matches with which product id, so I do one more step to convert the product_id to its correspond product_detail:
+The chart seems powerful in showing all the details needed. To avoid manually checking which product matches which product id, I further converted the product_id to its corresponding product_detail using a CTE:
 
 ```sql
 WITH pro_type AS 
@@ -220,7 +220,7 @@ LIMIT 10
 | Latte               | Carmel syrup                | 347                   |
 | Espresso shot       | Carmel syrup                | 345                   |
 
-This works beatifully. Now, everything it's clear, our most frequently purchased products together were **Ginger Scone** and **Ouro Brasileiro shot** with 696 times recorded, which categorized in **Bakery** and **Coffee** respectively. It is also worth noticing there was a significant demand for flavors adding to coffee, with the most popular pair was **Cappuccino** and **Suger Free Vanilla syrrup**!
+This approach works beatifully. Now, everything it's clear, our most frequently purchased products together were **Ginger Scone** and **Ouro Brasileiro shot** with 696 times recorded, categorized in **Bakery** and **Coffee** respectively. It is also worth noting the significant demand for adding flavours to coffee, with the most popular pair being **Cappuccino** and **Suger Free Vanilla syrrup**!
 
 # Conclusion
 
