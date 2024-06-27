@@ -222,5 +222,80 @@ LIMIT 10
 
 This approach works beatifully. Now, everything it's clear, our most frequently purchased products together were **Ginger Scone** and **Ouro Brasileiro shot** with 696 times recorded, categorized in **Bakery** and **Coffee** respectively. It is also worth noting the significant demand for adding flavours to coffee, with the most popular pair being **Cappuccino** and **Suger Free Vanilla syrrup**!
 
+This can even be interpreted into statistical insights with the given input we've already had. Let's try to calculate the probability of buying Product A with Product B using the following formula:
+
+<img src="Assets/support_formula.png" width="450" >
+
+
+Where:
+- Support(A -> B) is the number of orders containing both products A and B.
+- Support(A) is the number of orders containing product A. Let's try our top pair of product, which is 'Ouro Brasileiro shot' and 'Ginger Scone' as product A and B respectively. 
+
+We've had the number of orders containing both products, which is 696, therefore, we have Support(A -> B) = 696. 
+
+Now, using SQL, we can find the total number of orders that contain 'Ouro Brasileiro shot', or Support(A):
+
+```sql
+SELECT COUNT(DISTINCT order_id) from basket WHERE product_id = 87 -- product_id for Ouro Brasileiro shot is 87
+```
+
+The query shows there were 2199 orders that had 'Ouro Brasileiro shot'. Applying all the input to the formula, we now have:
+
+Confidence(Ouro Brasileiro shot -> Ouro Ginger Scone): 696/2199 =  0.32 = 32%
+
+It means that whenever a customer buys an Ouro Brasileiro shot, there is a 32% likelihood that they will also buy a Ginger Scone. The same approach can be applied to other pair of products to calculate the probability of buying one product with another one. 
+
 # Conclusion
 
+### Key insights
+
+**1. Top Revenue Sources:**
+
+- Coffee is the largest revenue generator, followed by Tea and Bakery.
+- Packed Chocolate contributes the least to revenue.
+
+**2. Store Performance:**
+
+- Each of the three stores contributes approximately one-third of the total revenue.
+- Hell's Kitchen (store 8) stands out slightly with the highest sales.
+
+**3. Sales Trends Over Time:**
+
+- Revenue generally increases over time, except for a dip in February due to fewer days.
+- Mondays and Fridays have the highest sales, while weekends see the lowest sales.
+- Peak sales occur at 10 a.m., starting from 6 a.m. and gradually declining after 10 a.m.
+
+**4. Market Basket Analysis:**
+
+- The most frequently bought-together products are Ginger Scone and Ouro Brasileiro shot.
+- There is a significant trend of adding flavors to coffee, particularly Cappuccino with Sugar Free Vanilla syrup.
+
+### Recommendations:
+
+**1. Enhance Coffee Offerings and Promotions:**
+
+- Expand the coffee menu with new flavors and seasonal specials.
+- Offer promotional bundles, such as discounts on frequently bought-together items.
+- Implement a loyalty program to reward frequent coffee buyers.
+
+**2. Optimize Store Operations Based on Peak Times:**
+
+- Adjust staff scheduling to ensure adequate coverage during peak hours, particularly around 10 a.m.
+- Manage inventory to ensure popular items are well-stocked during peak times.
+
+**3. Leverage Data-Driven Insights for Product Placement and Marketing:**
+
+- Place frequently bought-together items near each other to encourage cross-selling.
+- Create targeted marketing campaigns based on popular product pairs.
+
+**4. Improve Weekend Sales:**
+
+- Introduce weekend specials or discounts to attract more customers.
+- Create a family-friendly environment on weekends with activities or special menus for children.
+
+**5. Monitor and Adjust Based on Trends:**
+
+- Continuously monitor sales trends and adjust inventory, promotions, and staffing accordingly.
+- Be prepared to adjust the menu and promotions based on seasonal trends and holidays.
+
+By focusing on these insights and implementing the recommended actions, Maven Roasters can improve sales performance, customer satisfaction, and operational efficiency.
