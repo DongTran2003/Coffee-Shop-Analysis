@@ -236,7 +236,8 @@ We've had the number of orders containing both products, which is 696, therefore
 Now, using SQL, we can find the total number of orders that contain 'Ouro Brasileiro shot', or Support(A):
 
 ```sql
-SELECT COUNT(DISTINCT order_id) from basket WHERE product_id = 87 -- product_id for Ouro Brasileiro shot is 87
+SELECT COUNT(DISTINCT order_id) from basket WHERE product_id = 87 
+-- product_id for Ouro Brasileiro shot is 87
 ```
 
 The query shows there were 2199 orders that had 'Ouro Brasileiro shot'. Applying all the input to the formula, we now have:
@@ -299,3 +300,7 @@ It means that whenever a customer buys an Ouro Brasileiro shot, there is a 32% l
 - Be prepared to adjust the menu and promotions based on seasonal trends and holidays.
 
 By focusing on these insights and implementing the recommended actions, Maven Roasters can improve sales performance, customer satisfaction, and operational efficiency.
+
+## REFERENCE
+
+Kaur, M., & Kang, S. (2016). Market Basket Analysis: Identify the changing trends of market data using association rule mining. *Procedia computer science, 85*, 78-85.
