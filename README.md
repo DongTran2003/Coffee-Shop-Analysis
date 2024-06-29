@@ -12,11 +12,11 @@ Using **SQL** and **Tableau**, insights from the dataset address the following t
 - How have Maven Roasters sales trended over time (e.g., revenue per days of the week, time of the day, etc.)?
 - How often did customers purchase certain products together?
 
-The SQL queries addressing these questions can be found here: [click here](sql_code)
-
 The dataset is sourced from **Kaggle**:  [Coffee Shop Sales](https://www.kaggle.com/datasets/ahmedabbas757/coffee-sales/data)
 
 Link to Tableau public for visualizations: [click here](https://public.tableau.com/app/profile/dong.tran7019/viz/CoffeeShopAnalysisProject_17196758075890/Dashboard)
+
+The SQL queries addressing these questions can be found here: [click here](sql_code)
 
 # Tools and techniques
 
@@ -31,7 +31,7 @@ To fully explore the sales trends for the coffee shop, I utilised the following 
 
 Data cleaning is an important step prior to analysis. This section identifies any duplicates and null values in the dataset.
 
-First, let's identify duplicates using ROW_NUMBER() function in combination with a PARTITION BY clause for all columns:
+First, let's identify duplicates using `ROW_NUMBER()` function in combination with a `PARTITION BY` clause for all columns:
 
 ```sql
 WITH duplicate AS
@@ -125,7 +125,7 @@ For instance, the image below shows three different transaction_id's that occur 
 
 To identify which records belong to which orders, I created an ```order_id``` column. Records with the same ```transaction_date``` and ```transaction_time``` are assigned the same order_id.
 
-This can be achieved using the **DENSE_RANK() OVER()** function, ordered by `transaction_date` `and transaction_time`.
+This can be achieved using the `DENSE_RANK() OVER()` function, ordered by `transaction_date` and `transaction_time`.
 
 The new table called 'basket' will be used to store the updated data:
 
@@ -152,7 +152,7 @@ SELECT
 FROM transactions;
 ```
 
-By applying this process, we can accurately group items into their respective orders, allowing for a thorough market basket analysis.
+By applying this process, we can accurately group items that are purchased at the same transaction date and time into their respective orders, allowing for a thorough market basket analysis.
 
 
 ### **The Analysis**
@@ -229,7 +229,9 @@ This can even be interpreted into statistical insights with the given input we'v
 
 Where:
 - Support(A -> B) is the number of orders containing both products A and B.
-- Support(A) is the number of orders containing product A. Let's try our top pair of product, which is 'Ouro Brasileiro shot' and 'Ginger Scone' as product A and B respectively. 
+- Support(A) is the number of orders containing product A.
+
+ Let's try our top pair of product, which is 'Ouro Brasileiro shot' and 'Ginger Scone' as product A and B respectively. 
 
 We've had the number of orders containing both products, which is 696, therefore, we have Support(A -> B) = 696. 
 
@@ -301,6 +303,9 @@ It means that whenever a customer buys an Ouro Brasileiro shot, there is a 32% l
 
 By focusing on these insights and implementing the recommended actions, Maven Roasters can improve sales performance, customer satisfaction, and operational efficiency.
 
+Link to Tableau public for visualizations: [click here](https://public.tableau.com/app/profile/dong.tran7019/viz/CoffeeShopAnalysisProject_17196758075890/Dashboard)
+
 ## REFERENCE
 
 Kaur, M., & Kang, S. (2016). Market Basket Analysis: Identify the changing trends of market data using association rule mining. *Procedia computer science, 85*, 78-85.
+
