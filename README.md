@@ -16,7 +16,7 @@ The SQL queries addressing these questions can be found here: [click here](sql_c
 
 The dataset is sourced from **Kaggle**:  [Coffee Shop Sales](https://www.kaggle.com/datasets/ahmedabbas757/coffee-sales/data)
 
-Link to Tableau public for visualizations: 
+Link to Tableau public for visualizations: [click here](https://public.tableau.com/app/profile/dong.tran7019/viz/CoffeeShopAnalysisProject_17196758075890/Dashboard)
 
 # Tools and techniques
 
