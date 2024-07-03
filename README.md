@@ -305,6 +305,8 @@ By focusing on these insights and implementing the recommended actions, Maven Ro
 
 Link to Tableau public for visualizations: [click here](https://public.tableau.com/app/profile/dong.tran7019/viz/CoffeeShopAnalysisProject_17196758075890/Dashboard)
 
+<img src="Assets/Dashboard.png" width="400" >
+
 ## REFERENCE
 
 Kaur, M., & Kang, S. (2016). Market Basket Analysis: Identify the changing trends of market data using association rule mining. *Procedia computer science, 85*, 78-85.
