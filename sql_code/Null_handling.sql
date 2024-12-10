@@ -11,3 +11,5 @@ WHERE transaction_date IS NULL
    OR product_category IS NULL
    OR product_type IS NULL
    OR product_detail IS NULL;
+
+   SELECT * FROM basket LIMIT 10

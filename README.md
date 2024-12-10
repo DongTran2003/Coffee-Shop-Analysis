@@ -56,9 +56,9 @@ WHERE row_num > 1;
 ```
 The ```WHERE``` clause identifies records that are repeated more than twice, which are duplicates in this context. 
 
-Once we have a table listing all duplicates, we can delete them from our dataset (refer to: *[duplicate_handling.sql](sql_code\Duplicate_handling.sql)*).
+Once we have a table listing all duplicates, we can delete them from our dataset (refer to: *[duplicate_handling.sql](sql_code/Duplicate_handling.sql)*).
 
-Next, we check for *NULL* values. Following the query in *[Null_handling.sql](sql_code\Null_handling.sql)*, the result shows no null or missing values.
+Next, we check for *NULL* values. Following the query in *[Null_handling.sql](sql_code/Null_handling.sql)*, the result shows no null or missing values.
 
 # Findings
 

@@ -18,3 +18,5 @@ SELECT
 	transaction_qty,
 	product_id
 FROM transactions;
+
+SELECT *, avg(revenue) FROM transactions GROUP BY transaction_id
