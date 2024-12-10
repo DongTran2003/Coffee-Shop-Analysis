@@ -170,8 +170,8 @@ This is just the tip of the iceberg, however, since this analysis aims to bring 
 SELECT t1.product_id, t2.product_id, COUNT(*) AS times_bought_together
 FROM basket t1
 JOIN basket t2 ON t1.order_id = t2.order_id
-WHERE t1.product_id <> t2.product_id AND -- Exclude all rows that combine only 1 product as a pair
-	t1.product_id < t2.product_id -- a pair of 2 products will be listed in 2 records since order matters. We only need one of them
+WHERE t1.product_id <> t2.product_id -- Exclude all rows that combine only 1 product as a pair
+    AND t1.product_id < t2.product_id -- a pair of 2 products will be listed in 2 records since order matters. We only need one of them
 GROUP BY t1.product_id, t2.product_id
 ORDER BY times_bought_together DESC 
 LIMIT 10
